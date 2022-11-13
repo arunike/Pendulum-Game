@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pendulum Game</title>
+        <style>
+            * {
+                box-sizing: border-box;
+                margin: 0;
+            }
+            .game {
+                position: relative;
+                height: 500px;
+                width: 500px;
+            }
+            .item {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: cadetblue;
+                border-radius: 100%;
+                color: #fff;
+                width: 85px;
+                height: 85px;
+                border: 1px solid rgb(55, 101, 103);
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                margin: -40px 0 0 -40px;
+            }
+            .item-name {
+                position: relative;
+                z-index: 1;
+            }
+            .tool {
+                animation: run 2s linear infinite;
+            }
+            @keyframes run {
+                0% {
+                    transform:rotate(0deg);
+                }
+                100% {
+                    transform:rotate(360deg);
+                }
+            }
+            .paused {
+                animation-play-state: paused;
+            }
+            .tool,.tool-circle {
+                position: absolute;
+                width: 60px;
+                height: 60px;
+                left: 50%;
+                top: 50%;
+                margin: -30px 0 0 -30px;
+                background-color: rgb(117, 68, 68);
+                border-radius: 100%;
+            }
+            .tool:after {
+                content: '';
+                position: absolute;
+                height: 100px;
+                width: 10px;
+                background-color: rgb(117, 68, 68);
+                left: 50%;
+                margin-left: -5px;
+                bottom: 30px;
+            }
+            .tool-circle {
+                top: -78px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .score {
+                position: absolute;
+                left: 250px;
+                top: 250px;
+                transform: translate(-50%, -50%);
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Pendulum Game</h1>
+        <div class="score">Score: <label id="val">0</label></div>
+        <div class="game"></div>
+    </body>
+    <script src='pendulumGame.js'></script>
+    <button onClick="window.location.reload()">Restart</button>
+</html>
